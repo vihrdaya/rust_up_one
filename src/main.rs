@@ -20,7 +20,7 @@ fn main() {
     let mut fighter2 = Fighter {
         hp: rng.gen_range(5..10),
         attack: rng.gen_range(2..4),
-        defense: rng.gen_range(0..1),
+        defense: rng.gen_range(1..5),
     };
 
     println!("Fighter 1: {:?}", fighter1);
