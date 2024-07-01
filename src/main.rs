@@ -9,13 +9,20 @@ struct Fighter {
 }
 
 
+fn fight(attacker: &Fighter, defender: &mut Fighter) -> bool {
+    let damage = attacker.attack.saturating_sub(defender.defense);
+    defender.hp = defender.hp.saturating_sub(damage);
+    defender.hp == 0
+}
+
+
 fn main() {
     let mut rng = rand::thread_rng();
 
     let mut fighter1 = Fighter {
-        hp: rng.gen_range(5..10),
-        attack: rng.gen_range(2..4),
-        defense: rng.gen_range(0..1),
+        hp: rng.gen_range(5..=10),
+        attack: rng.gen_range(2..=4),
+        defense: rng.gen_range(0..=1),
     };
     let mut fighter2 = Fighter {
         hp: rng.gen_range(5..10),
